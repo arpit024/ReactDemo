@@ -1,4 +1,4 @@
-import { REGISTER_NEW_USER } from '../actions/types'
+import { ADD_USER } from '../actions/types'
 
 const initialState = {
     isRegistered: false,
@@ -7,7 +7,7 @@ const initialState = {
 
 export default function(state = initialState, action){
     switch(action.type){
-        case REGISTER_NEW_USER:
+        case ADD_USER:
             return {
                 ...state,
                 isRegistered: true,
