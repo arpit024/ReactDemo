@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.0",
+    "mui-datatables": "^3.7.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-material-ui-form-validator": "^2.1.1",
@@ -25,6 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:4001",
   "eslintConfig": {
     "extends": [
       "react-app",
