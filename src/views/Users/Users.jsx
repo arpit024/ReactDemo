@@ -61,7 +61,7 @@ class Users extends Component {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 email: this.state.email,
-                age: this.state.age,
+                age: parseInt(this.state.age),
                 id: this.props.match.params.id
             }
             this.props.updateUser(
