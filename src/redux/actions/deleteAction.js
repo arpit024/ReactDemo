@@ -4,7 +4,7 @@ import {
 } from './types'
 
 export const deleteUser = (userData) =>async(dispatch) => {
-    let res = await axios.delete('/api/deleteUser', {data:{id:userData}})
+    let res = await axios.delete('/api/userService/deleteUser', {data:{id:userData}})
     if(res.data.status == 1){
         dispatch({
             type: DELETE_USER,

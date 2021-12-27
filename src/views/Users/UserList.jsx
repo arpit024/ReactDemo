@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 import Success from '../Success'
 import {deleteUser} from '../../redux/actions/deleteAction'
 import {closeDialog} from '../../redux/actions/closeDialog';
-
+import AuthenticatedPage from '../../components/AuthenicateApiCall';
 class UserList extends Component {
     state = {
         data: [],
@@ -85,7 +85,7 @@ class UserList extends Component {
         this.props.history.push("/editUser/"+id)
     }
     componentDidMount = async () => {
-        let res = await axios.get('/api/userList')
+        let res = await this.props.authenticateApiCall("get",'/api/userService/userList',null)
         res.data.result.forEach(item => {
             item.Delete = { id: item.ID }
             item.Edit = { id: item.ID }
@@ -95,7 +95,7 @@ class UserList extends Component {
     componentDidUpdate = async (prevState) => {
         console.log(prevState.delete, this.state.delete)
         if(prevState.delete!=this.state.delete){
-            let res = await axios.get('/api/userList')
+            let res = await axios.get('/api/userService/userList')
             res.data.result.forEach(item => {
                 item.Delete = { id: item.ID }
                 item.Edit = { id: item.ID }
@@ -139,5 +139,5 @@ const mapStateToProps = (state) => {
         result: state.delete.success
     }
 }
-export default connect(mapStateToProps,{deleteUser,closeDialog})(UserList);
+export default connect(mapStateToProps,{deleteUser,closeDialog})(AuthenticatedPage(UserList));
 

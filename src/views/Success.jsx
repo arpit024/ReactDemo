@@ -10,7 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import {closeDialog} from '../redux/actions/closeDialog';
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const styles = (theme) => ({
   root: {
@@ -54,11 +54,11 @@ const DialogActions = withStyles((theme) => ({
 
 const _Success=(props)=> {
   const [open, setOpen] = React.useState(false);
-  const history = useHistory()
+  const navigate = useNavigate ()
 
   const handleClose = () => {
     props.closeDialog();
-    history.push("/index")
+    navigate("/index")
   };
   console.log(props)
   return (

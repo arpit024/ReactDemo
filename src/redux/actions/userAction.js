@@ -5,7 +5,7 @@ import {
 } from './types'
 
 export const addUser = (userData) =>async(dispatch) => {
-    let res = await axios.post('/api/addUser', userData)
+    let res = await axios.post('/api/userAuthService/addUser', userData)
     if(res.data.status == 1){
         dispatch({
             type: ADD_USER,

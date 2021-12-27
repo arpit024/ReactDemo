@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import {useHistory} from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,12 +21,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles();
-  const history = useHistory()
-  const handleClick = () =>{
-    history.push("/addUser")
+  let navigate  = useNavigate ()
+  const handleLogout = () =>{
+    localStorage.removeItem("token")
+    navigate("/")
   }
   const handleHomeClick = () =>{
-    history.push("/index")
+    navigate("/user/userList")
   }
   return (
     <div className={classes.root}>
@@ -38,7 +39,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
           <Button color="inherit" onClick={handleHomeClick}>HOME</Button>
           </Typography>
-          <Button color="inherit" onClick={handleClick}>ADD USER</Button>
+          <Button color="inherit" onClick={handleLogout}>LOGOUT</Button>
         </Toolbar>
       </AppBar>
     </div>

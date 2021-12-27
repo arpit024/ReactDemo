@@ -4,7 +4,7 @@ import {
 } from './types'
 
 export const updateUser = (userData) =>async(dispatch) => {
-    let res = await axios.put(`/api/updateUser`,userData)
+    let res = await axios.put(`/api/userService/updateUser`,userData)
     if(res.data.status == 1){
         dispatch({
             type: EDIT_USER,
